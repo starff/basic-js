@@ -2,11 +2,11 @@ module.exports = function getSeason(season) {
   
   if(season == undefined) {
     return 'Unable to determine the time of year!';
-  } else if(typeof season != 'object') {
+  } else if(typeof season !== 'object' || season.hasOwnProperty('toString')) {
     throw new Error;
   };
   let month = season.getMonth();
-  if(month < 2) {
+  if(month < 2) { 
     return 'winter';
   } else if (month >= 2 && month < 5) {
     return 'spring';
